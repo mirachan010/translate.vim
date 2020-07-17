@@ -24,8 +24,8 @@ function! translate#translate(bang, start, end, ...) abort
   if &ff == "dos"
     let ln = "\r\n"
   endif
-
-  let text = s:getline(a:start, a:end, ln, a:000)
+  let s:end_s = a:end + 1
+  let text = s:getline(a:start, s:end_s, ln, a:000)
   if empty(text)
     call s:echoerr("text is emtpy")
     return
